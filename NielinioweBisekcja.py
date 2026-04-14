@@ -1,14 +1,14 @@
 from sympy import sympify, symbols
 
-a = float(input('podaj poczatek przedzialu'))
-b = float(input('podaj koniec przedzialu'))
-dokl = float(input('podaj dokladnosc przedzialu'))
-podanaFunkcja = sympify(input('podaj funkcje np. x**2 - 2'))
+a = float(input('podaj początek przedziału'))
+b = float(input('podaj koniec przedziału'))
+dokl = float(input('podaj dokładności przedziału'))
+podanaFunkcja = sympify(input('podaj funkcję np. x**2 - 2'))
 
-def wybranaFunkcja(x):
+def wybrana_funkcja(x):
     return podanaFunkcja.subs(symbols('x'), x)
 
-if wybranaFunkcja(a) * wybranaFunkcja(b) > 0:
+if wybrana_funkcja(a) * wybrana_funkcja(b) > 0:
     print("Błąd...")
     exit()
 
@@ -17,7 +17,7 @@ while (True):
     if abs(c-a) < dokl:
         wynik = c
         break
-    if wybranaFunkcja(a) * wybranaFunkcja(c) < 0:
+    if wybrana_funkcja(a) * wybrana_funkcja(c) < 0:
         b = c
     else:
         a = c
