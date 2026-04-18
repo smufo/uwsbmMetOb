@@ -29,4 +29,3 @@ plt.xlabel('oś x')
 plt.ylabel('oś y')
 plt.title('Wykres sin(x) oraz podchodna sin(x)')
 plt.show()
-
