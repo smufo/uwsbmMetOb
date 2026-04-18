@@ -1,9 +1,9 @@
 from sympy import sympify, symbols
 
+podanaFunkcja = sympify(input('podaj funkcję np. x**2 - 2'))
 a = float(input('podaj początek przedziału'))
 b = float(input('podaj koniec przedziału'))
 dokl = float(input('podaj dokładności przedziału'))
-podanaFunkcja = sympify(input('podaj funkcję np. x**2 - 2'))
 
 def wybrana_funkcja(x):
     return podanaFunkcja.subs(symbols('x'), x)
