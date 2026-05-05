@@ -1,9 +1,16 @@
-A = [[2, 1, -1, 8], [-3, -1, 2, -1],[-2, 1, 2, -3]]
+A = [[2, 1, -1], [-3, -1, 2],[-2, 1, 2]]
+B = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
 
 def zwroc_wymiary(M):
     wiersze = len(M)
     kolumny = len(M[0])
     return wiersze, kolumny
+
+def wypisz_macierz(M):
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            print(M[i][j], end=" ")
+        print()
 
 def dodaj_macierze(A, B):
     if zwroc_wymiary(A) != zwroc_wymiary(B):
@@ -14,11 +21,7 @@ def dodaj_macierze(A, B):
         for j in range(len(A[0])):
             wynikowa[i][j] = A[i][j] + B[i][j]
 
-    print("Wynik dodawania to macierz:")
-    for i in range(len(wynikowa)):
-        for j in range(len(wynikowa[0])):
-            print(wynikowa[i][j], end=" ")
-        print()
+    wypisz_macierz(wynikowa)
     return wynikowa
 
 def odejmij_macierze(A, B):
@@ -30,25 +33,16 @@ def odejmij_macierze(A, B):
         for j in range(len(A[0])):
             wynikowa[i][j] = A[i][j] - B[i][j]
 
-    print("Wynik odejmowania to macierz:")
-    for i in range(len(wynikowa)):
-        for j in range(len(wynikowa[0])):
-            print(wynikowa[i][j], end=" ")
-        print()
+    wypisz_macierz(wynikowa)
     return wynikowa
 
-def przemnoz_macierz(A):
-    mnoznik = int(input("Podaj mnożnik: "))
+def przemnoz_macierz(A, mnoznik):
     wynikowa = [[0]*len(A[0]) for i in range(len(A))]
     for i in range(len(A)):
         for j in range(len(A[0])):
             wynikowa[i][j] = A[i][j] * mnoznik
 
-    print("Wynik przemnożenia macierzy przez liczbę:")
-    for i in range(len(wynikowa)):
-        for j in range(len(wynikowa[0])):
-            print(wynikowa[i][j], end=" ")
-        print()
+    wypisz_macierz(wynikowa)
     return wynikowa
 
 def mnozenie_macierzy(A, B):
@@ -63,9 +57,13 @@ def mnozenie_macierzy(A, B):
             for k in range(len(B)):
                 wynikowa[i][j] += A[i][k] * B[k][j]
 
-    print("Wynik mnożenia macierzy przez macierz:")
-    for i in range(len(wynikowa)):
-        for j in range(len(wynikowa[0])):
-            print(wynikowa[i][j], end=" ")
-        print()
+    wypisz_macierz(wynikowa)
     return wynikowa
+
+dodaj_macierze(A, B)
+print('------')
+odejmij_macierze(A, B)
+print('------')
+przemnoz_macierz(A, 2)
+print('------')
+mnozenie_macierzy(A, B)
