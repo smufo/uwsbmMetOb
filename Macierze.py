@@ -1,5 +1,4 @@
-A = [[1,2,3],[4,5,6],[7,8,9]]
-B = [[1,1,1],[2,2,2],[3,3,3]]
+A = [[2, 1, -1, 8], [-3, -1, 2, -1],[-2, 1, 2, -3]]
 
 def zwroc_wymiary(M):
     wiersze = len(M)
@@ -22,8 +21,6 @@ def dodaj_macierze(A, B):
         print()
     return wynikowa
 
-dodaj_macierze(A, B)
-
 def odejmij_macierze(A, B):
     if zwroc_wymiary(A) != zwroc_wymiary(B):
         print("Nie można odejmować macierzy o różnych wymiarach")
@@ -40,8 +37,6 @@ def odejmij_macierze(A, B):
         print()
     return wynikowa
 
-odejmij_macierze(A, B)
-
 def przemnoz_macierz(A):
     mnoznik = int(input("Podaj mnożnik: "))
     wynikowa = [[0]*len(A[0]) for i in range(len(A))]
@@ -55,8 +50,6 @@ def przemnoz_macierz(A):
             print(wynikowa[i][j], end=" ")
         print()
     return wynikowa
-
-przemnoz_macierz(A)
 
 def mnozenie_macierzy(A, B):
     if (zwroc_wymiary(A))[1] != (zwroc_wymiary(B))[0]:
@@ -76,5 +69,3 @@ def mnozenie_macierzy(A, B):
             print(wynikowa[i][j], end=" ")
         print()
     return wynikowa
-
-mnozenie_macierzy(A, B)
