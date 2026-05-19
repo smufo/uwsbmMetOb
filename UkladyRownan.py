@@ -208,3 +208,9 @@ def gauss_jordan(A, b):
     return [round(xi, 6) for xi in x]
 
 gauss_jordan(A, b)
+
+C = [[3, 2, -2],[1, 1, 1],[2, 2, 1]]
+d = [3, 3, 5]
+
+print("------")
+gauss_jordan(C, d)
