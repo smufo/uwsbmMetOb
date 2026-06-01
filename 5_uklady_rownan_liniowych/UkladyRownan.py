@@ -1,6 +1,3 @@
-A = [[7, 2.5, 7.2], [2, 7, 3.3], [17, 0, 1]]
-b = [3.7, 12, 3]
-
 def zamien_wiersze(A, wiersz1, wiersz2):
     A[wiersz1], A[wiersz2] = A[wiersz2], A[wiersz1]
     print("Macierz po zamianie wierszy:")
@@ -77,14 +74,14 @@ def gauss_eliminacja(A, b):
             ranga_M += 1
         elif abs(wyraz_wolny) > 1e-9:
             ranga_M += 1
-            print(f"UWAGA: wiersz {r} to [0…0 | {round(wyraz_wolny, 6)}] → układ sprzeczny!")
-            return "Układ sprzeczny – brak rozwiązań"
+            print(f"Wiersz {r} to [0…0 | {round(wyraz_wolny, 6)}] → układ sprzeczny")
+            return "Układ sprzeczny - brak rozwiązań"
 
     if ranga_A < n:
         stopnie_swobody = n - ranga_A
-        return (f"Układ nieoznaczony – nieskończenie wiele rozwiązań "
+        return (f"Układ nieoznaczony - nieskończenie wiele rozwiązań"
                 f"(rg(A) = {ranga_A} < n = {n}, "
-                f"{stopnie_swobody} parametr{'y' if 1 < stopnie_swobody < 5 else 'ów'} swobodnych)")
+                f"{stopnie_swobody} parametrów swobodnych)")
 
     x = [0.0] * n
     for i in range(n - 1, -1, -1):
@@ -104,8 +101,6 @@ def gauss_eliminacja(A, b):
         print(f"x{i + 1} = {round(xi, 6)}")
 
     return [round(xi, 6) for xi in x]
-
-gauss_eliminacja(A, b)
 
 def gauss_jordan(A, b):
     n = len(b)
@@ -162,8 +157,8 @@ def gauss_jordan(A, b):
         wyraz_wolny = macierz_rozszerzona[r][n]
         if all(abs(x) < 1e-9 for x in wspolczynniki):
             if abs(wyraz_wolny) > 1e-9:
-                print(f"UWAGA: wiersz {r} to [0…0 | {round(wyraz_wolny, 6)}] → układ sprzeczny!")
-                return "Układ sprzeczny – brak rozwiązań"
+                print(f"Wiersz {r} to [0…0 | {round(wyraz_wolny, 6)}] → układ sprzeczny")
+                return "Układ sprzeczny - brak rozwiązań"
 
     wszystkie_kolumny = set(range(n))
     kolumny_swobodne = sorted(wszystkie_kolumny - set(kolumny_pivot))
@@ -194,8 +189,8 @@ def gauss_jordan(A, b):
         for i in range(n):
             print(f"x{i + 1} = {rozwiazanie.get(i, '?')}")
 
-        return (f"Układ nieoznaczony – nieskończenie wiele rozwiązań "
-                f"({stopnie} parametr{'y' if 1 < stopnie < 5 else 'ów'} swobodnych)")
+        return (f"Układ nieoznaczony - nieskończenie wiele rozwiązań "
+                f"({stopnie} parametrów swobodnych)")
 
     x = [0.0] * n
     for i, col in enumerate(kolumny_pivot):
@@ -207,10 +202,19 @@ def gauss_jordan(A, b):
 
     return [round(xi, 6) for xi in x]
 
-gauss_jordan(A, b)
+# Oczekiwany wynik: x1 = 1, x2 = 2, x3 = 1
+A_oznaczony = [[2, -1, 1],[1, 1, -1],[3, 1, 0]]
+b_oznaczony = [1, 2, 5]
+gauss_jordan(A_oznaczony, b_oznaczony)
+print('-----------------------------')
 
-C = [[3, 2, -2],[1, 1, 1],[2, 2, 1]]
-d = [3, 3, 5]
+# Oczekiwany wynik: "Układ sprzeczny - brak rozwiązań"
+A_sprzeczny = [[1, 1, 1],[2, 2, 2],[1, -1, 0]]
+b_sprzeczny = [1, 3, 0]
+gauss_jordan(A_sprzeczny, b_sprzeczny)
+print('-----------------------------')
 
-print("------")
-gauss_jordan(C, d)
+# Oczekiwany wynik: x3 = t1 (zmienna swobodna), x1 i x2 wyliczone parametrycznie
+A_nieoznaczony = [[1, 2, -1],[2, 4, -2],[1, 1, 1]]
+b_nieoznaczony = [1, 2, 3]
+gauss_jordan(A_nieoznaczony, b_nieoznaczony)
