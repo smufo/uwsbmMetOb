@@ -45,6 +45,15 @@ def przemnoz_macierz(A, mnoznik):
     wypisz_macierz(wynikowa)
     return wynikowa
 
+def transponuj_macierz(M):
+    wynikowa = [[0] * len(M) for i in range(len(M[0]))]
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            wynikowa[j][i] = M[i][j]
+
+    wypisz_macierz(wynikowa)
+    return wynikowa
+
 def mnozenie_macierzy(A, B):
     if (zwroc_wymiary(A))[1] != (zwroc_wymiary(B))[0]:
         print("Nie można mnożyć macierzy o niezgodnych wymiarach")
@@ -65,5 +74,7 @@ print('------')
 odejmij_macierze(A, B)
 print('------')
 przemnoz_macierz(A, 2)
+print('------')
+transponuj_macierz(A)
 print('------')
 mnozenie_macierzy(A, B)
