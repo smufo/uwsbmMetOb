@@ -16,7 +16,7 @@ def dodaj_macierze(A, B):
     if zwroc_wymiary(A) != zwroc_wymiary(B):
         print("Nie można dodać macierzy o różnych wymiarach")
         return None
-    wynikowa = [[0] * len(A[0]) for i in range(len(A))]
+    wynikowa = [[0] * len(A[0]) for i in range(len(A))] #ominięcie pułapki referencyjnej
     for i in range(len(A)):
         for j in range(len(A[0])):
             wynikowa[i][j] = A[i][j] + B[i][j]
@@ -28,7 +28,7 @@ def odejmij_macierze(A, B):
     if zwroc_wymiary(A) != zwroc_wymiary(B):
         print("Nie można odejmować macierzy o różnych wymiarach")
         return None
-    wynikowa = [[0] * len(A[0]) for i in range(len(A))]
+    wynikowa = [[0] * len(A[0]) for i in range(len(A))] #ominięcie pułapki referencyjnej
     for i in range(len(A)):
         for j in range(len(A[0])):
             wynikowa[i][j] = A[i][j] - B[i][j]
@@ -37,7 +37,7 @@ def odejmij_macierze(A, B):
     return wynikowa
 
 def przemnoz_macierz(A, mnoznik):
-    wynikowa = [[0]*len(A[0]) for i in range(len(A))]
+    wynikowa = [[0]*len(A[0]) for i in range(len(A))] #ominięcie pułapki referencyjnej
     for i in range(len(A)):
         for j in range(len(A[0])):
             wynikowa[i][j] = A[i][j] * mnoznik
@@ -46,7 +46,7 @@ def przemnoz_macierz(A, mnoznik):
     return wynikowa
 
 def transponuj_macierz(M):
-    wynikowa = [[0] * len(M) for i in range(len(M[0]))]
+    wynikowa = [[0] * len(M) for i in range(len(M[0]))] #ominięcie pułapki referencyjnej
     for i in range(len(M)):
         for j in range(len(M[0])):
             wynikowa[j][i] = M[i][j]
@@ -59,7 +59,7 @@ def mnozenie_macierzy(A, B):
         print("Nie można mnożyć macierzy o niezgodnych wymiarach")
         return None
 
-    wynikowa = [[0]*len(B[0]) for x in range(len(A))]
+    wynikowa = [[0]*len(B[0]) for x in range(len(A))] #ominięcie pułapki referencyjnej
 
     for i in range(len(A)):
         for j in range(len(B[0])):

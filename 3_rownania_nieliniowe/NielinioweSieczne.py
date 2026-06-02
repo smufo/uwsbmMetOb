@@ -1,3 +1,4 @@
+#kompropis, szybsza niż bisekcja, wolniejsza niż newton, ale nie trzeba znać pochodnej
 from sympy import sympify, symbols
 
 podanaFunkcja = sympify(input('podaj funkcję np. x**2 - 2'))
@@ -9,6 +10,7 @@ def wybrana_funkcja(x):
     return podanaFunkcja.subs(symbols('x'), x)
 
 while abs(wybrana_funkcja(x1)) > epsilon:
+    #znalezienie siecznej
     x0, x1 = x1, x1 - wybrana_funkcja(x1) * (x1 - x0) / (wybrana_funkcja(x1) - wybrana_funkcja(x0))
 
 print('Rozwiązaniem z dokładnością do', epsilon, 'jest x =', x1)

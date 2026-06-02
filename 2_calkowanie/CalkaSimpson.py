@@ -11,9 +11,10 @@ while n % 2 != 0:
 def wybrana_funkcja(x):
     return podanaFunkcja.subs(symbols('x'), x)
 
-h = (b - a) / n
+h = (b - a) / n #długość kroku
 suma = wybrana_funkcja(a) + wybrana_funkcja(b)
 
+#mnożenie naprzemienne indeksów parzystych i nieparzystych
 for i in range(1, n):
     xi = a + i * h
     if i % 2 == 0:
@@ -21,6 +22,7 @@ for i in range(1, n):
     else:
         suma += 4 * wybrana_funkcja(xi)
 
+#reguła 1/3 simpsona
 calka = (h / 3) * suma
 
 print('Wynik całki metodą Simpsona:', calka)

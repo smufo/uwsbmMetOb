@@ -11,6 +11,7 @@ def wybrana_funkcja(x):
 deltaX = (b - a) / n
 suma_pol = 0
 
+#metoda prostokątów lewostronnych
 for i in range(0, n):
     xi = a + i * deltaX
     hi = wybrana_funkcja(xi)

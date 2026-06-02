@@ -51,7 +51,7 @@ def gauss_eliminacja(A, b):
         for r in range(pivot + 1, n):
             if macierz_rozszerzona[r][col] != 0:
                 mnoznik = -macierz_rozszerzona[r][col] / macierz_rozszerzona[pivot][col]
-                print(f"Zerowanie: wiersz {r} += {mnoznik:.4g} * wiersz {pivot}")
+                print(f"Zerowanie: wiersz {r} += {mnoznik} * wiersz {pivot}")
                 dodanie_do_wiersza_wielokrotnosci_wiersza(macierz_rozszerzona, r, pivot, mnoznik)
                 print()
 

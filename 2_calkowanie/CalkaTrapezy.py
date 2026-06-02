@@ -14,9 +14,9 @@ h = szerokosc_przedzialu
 suma = 0
 
 for i in range(n):
-    xi = a + i * h
-    xi_1 = a + (i + 1) * h
-    pole = ((wybrana_funkcja(xi) + wybrana_funkcja(xi_1)) / 2) * h
+    xi = a + i * h #lewa krawędź
+    xi_1 = a + (i + 1) * h #prawa krawędź
+    pole = ((wybrana_funkcja(xi) + wybrana_funkcja(xi_1)) / 2) * h #pole trapezu
     suma += pole
 
 print('Wynik całki metodą trapezów:', suma)

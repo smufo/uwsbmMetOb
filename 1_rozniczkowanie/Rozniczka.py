@@ -14,6 +14,7 @@ delta = (b - a) / n
 
 tablica_x = [a + i * delta for i in range(n + 1)]
 tablica_y = [wybrana_funkcja(x) for x in tablica_x]
+#iloraz różnicowy centralny
 tablica_pochodnych = [(wybrana_funkcja(x + h) - wybrana_funkcja(x - h)) / (2 * h) for x in tablica_x]
 
 plt.plot(tablica_x, tablica_y, marker='.', linestyle='-', color='b', label=str(podanaFunkcja))
